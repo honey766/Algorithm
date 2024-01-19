@@ -4,7 +4,6 @@ using namespace std;
 bool f(long long* a, int size, long long n, long long m) {
     if (n == 0) return true;
     for (int i = 0; i < size; i++) {
-        if (a[i] < n) continue;
         m -= a[i] / n;
         if (m <= 0) return true;
     }
