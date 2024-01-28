@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <unordered_map>
 using namespace std;
 
 int main()
@@ -8,7 +8,7 @@ int main()
 
     int n, m;
     string s1, s2;
-    map<string, string> mapset;
+    unordered_map<string, string> mapset;
     cin >> n >> m;
     while (n--) {
         cin >> s1 >> s2;
