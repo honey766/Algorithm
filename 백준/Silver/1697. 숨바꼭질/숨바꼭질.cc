@@ -3,6 +3,12 @@
 #include <cstring>
 using namespace std;
 
+bool visited[100001];
+
+void pushque(queue<int>& que, int n) {
+    que.push(n);
+    visited[n] = true;
+}
 
 int main()
 {
@@ -14,21 +20,19 @@ int main()
         cout << n - k;
         return 0;
     }
-    bool visited[100001];
     memset(visited, 0, 100001);
 
     queue<int> que;
-    que.push(n);
+    pushque(que, n);
     while (!que.empty()) {
         int sz = que.size();
         while (sz--) {
             a = que.front();
-            if (a == k) break;
-            visited[a] = true;
+            if (a == k) break;  
             que.pop();
-            if (a * 2 <= 100000 && !visited[a * 2]) que.push(a * 2);
-            if (a < 100000 && !visited[a + 1]) que.push(a + 1);
-            if (a > 0 && !visited[a - 1]) que.push(a - 1);
+            if (a * 2 <= 100000 && !visited[a * 2]) pushque(que, a * 2);
+            if (a < 100000 && !visited[a + 1]) pushque(que, a + 1);
+            if (a > 0 && !visited[a - 1]) pushque(que, a - 1);
         }
         if (a == k) break;
         cnt++;
