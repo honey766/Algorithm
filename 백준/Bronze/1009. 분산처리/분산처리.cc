@@ -10,7 +10,8 @@ int main()
     while (t--) {
         cin >> a >> b;
         tmp = a % 10;
-        while (--b)
+        b = (b % 4 == 0) ? 4 : b % 4; //모든 숫자는 최대 4 주기로 일의 자리가 같음
+        while (--b > 0)
             tmp = (tmp * a) % 10;
         if (!tmp) tmp = 10;
         cout << tmp << '\n';
