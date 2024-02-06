@@ -34,7 +34,7 @@ int main()
             a[i][j] = s[j] - '0';
     }
 
-    queue<pair<int, int>> que;
+    queue<pair<short, short>> que;
     que.push({ 0,0 });
     visited[0][0] = true;
     while (!que.empty()) {
