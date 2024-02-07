@@ -4,7 +4,7 @@
 using namespace std;
 
 int n, m;
-queue<pair<int, int>> que;
+queue<pair<short, short>> que;
 char arr[1000][1000];
 bool visited[1000][1000];
 int clear; //익은 토마토 개수
