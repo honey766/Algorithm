@@ -10,7 +10,7 @@ bool visited[1000][1000];
 int clear; //익은 토마토 개수
 int T1[4] = { -1, 0, 0, 1 };
 int T2[4] = { 0, -1, 1, 0 };
-// (T1[i], T2[j]) : 위, 왼, 오른, 아래
+// (T1[i], T2[i]) : 위, 왼, 오른, 아래
 
 bool validPos(int i, int j, int k) {
     switch (k) {
