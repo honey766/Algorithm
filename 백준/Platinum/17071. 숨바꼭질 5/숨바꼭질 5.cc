@@ -5,26 +5,19 @@
 #include <algorithm>
 using namespace std;
 
-struct visit {
-    char visited;
-    short cnt;
-};
-
-visit visited[500001];
+char visited[500001]; // 0이면 안 들어갔음, 1이면 짝수 하나, 2면 홀수가 하나 들어가 있음, 3이면 둘 다 들어갔음
 vector<int> pos;
 queue<int> que;
 
 void pushque(int n, int cnt) {
     que.push(n);
-    ++visited[n].visited;
-    visited[n].cnt = cnt;
+    visited[n] = visited[n] ? 3 : cnt % 2 + 1;
 }
 
 //같은 수에 대한 방문은 홀수 한 번, 짝수 한 번 허용한다.
 //이미 방문했다면 true
 bool visitCheck(int n, int cnt) {
-    if (visited[n].visited == 0) return false;
-    if (visited[n].visited == 1 && (visited[n].cnt + cnt) % 2 == 1) return false;
+    if (!visited[n] || (visited[n] < 3 && (visited[n] + cnt) % 2 == 0)) return false;
     return true;
 }
 
@@ -53,7 +46,7 @@ int main()
 
     int n, k, a, whenMeet, cnt = 0, Min = 1000000;
     cin >> n >> k;
-    memset(visited, 0, 150'0005);
+    memset(visited, 0, 50'0001);
     
     makePos(k);
     pushque(n, 0);
