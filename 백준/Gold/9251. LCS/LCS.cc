@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int dp[1001][1001]; //dp[i][j] : 각 문자열의 i-1, j-1번째까지 봤을 때 LCS
+short dp[1001][1001]; //dp[i][j] : 각 문자열의 i-1, j-1번째까지 봤을 때 LCS
 
 int main()
 {
