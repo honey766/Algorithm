@@ -37,13 +37,11 @@ int main()
     pr* snake = new pr[m];
     for (i = 0; i < n; ++i) {
         cin >> j >> to;
-        ladder[i].first = j;
-        ladder[i].second = to;
+        ladder[i] = { j, to };
     }
     for (i = 0; i < m; ++i) {
         cin >> j >> to;
-        snake[i].first = j;
-        snake[i].second = to;
+        snake[i] = { j, to };
     }
     sort(ladder, ladder + n);
     sort(snake, snake + m);
