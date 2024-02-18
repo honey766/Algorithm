@@ -14,7 +14,7 @@ int main()
 	for (int i = 0; i < n - 1; i++) {
 		cin >> a;
 		Min = min(Min, a); //지금까지의 가장 싼 가격
-		sum += Min * len[i];
+		sum += (long long)Min * len[i];
 	}
 	cin >> a;
 	cout << sum;
