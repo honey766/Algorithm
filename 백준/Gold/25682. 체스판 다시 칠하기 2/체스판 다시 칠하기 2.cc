@@ -9,12 +9,13 @@ int main()
 	ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 	int n, m, k, cor, cnt, Min = 10'000'000;
-	char c;
+	string s;
 	cin >> n >> m >> k;
 	for (int i = 1; i <= n; i++) {
+		cin >> s;
 		for (int j = 1; j <= m; j++) {
-			cin >> c;
-			if (((i + j) % 2 == 0 && c == 'B') || ((i + j) % 2 && c == 'W'))
+			
+			if (((i + j) % 2 == 0 && s[j - 1] == 'B') || ((i + j) % 2 && s[j - 1] == 'W'))
 				good[i][j] = 1;
 			good[i][j] += good[i - 1][j] + good[i][j - 1] - good[i - 1][j - 1];
 		}
