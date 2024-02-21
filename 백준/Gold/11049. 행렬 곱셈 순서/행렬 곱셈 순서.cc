@@ -2,7 +2,7 @@
 using namespace std;
 #define INF 2'000'000'000
 
-int arr[500][2], dp[500][500]; //i~j까지 파일 합칠 때 최솟값
+int arr[500][2], dp[500][500]; //i~j번째 행렬 합칠 때 최솟값
 
 int main()
 {
