@@ -1,9 +1,9 @@
 #include <iostream>
-#include <stack>
 using namespace std;
 
-stack<pair<int, int>> stk;
+int stk[1'000'000];
 int ans[1'000'000];
+int top;
 
 int main()
 {
@@ -11,18 +11,20 @@ int main()
 
 	int n, a, j;
 	cin >> n;
+	top = -1;
 	for (int i = 0; i < n; i++) {
-		cin >> a;
+		cin >> ans[i];
 		//스택 안에는 무조건 내림차순으로 원소가 정렬되어 있다.
 		//원래 원소보다 더 큰 원소가 들어오면, 원래 원소는 pop된다
-		while (!stk.empty() && stk.top().first < a) {
-			ans[stk.top().second] = a;
-			stk.pop();
+		while (top >= 0 && ans[stk[top]] < ans[i]) {
+			ans[stk[top]] = ans[i];
+			--top;
 		}
-		stk.push({ a, i });
+		stk[++top] = i;
 	}
+	while (top >= 0)
+		ans[stk[top--]] = -1;
 	for (int i = 0; i < n; i++) {
-		if (!ans[i]) cout << "-1 ";
-		else cout << ans[i] << ' ';
+		cout << ans[i] << ' ';
 	}
 }
