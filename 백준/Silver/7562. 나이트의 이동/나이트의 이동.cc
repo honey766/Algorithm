@@ -31,13 +31,13 @@ void visitEight(int a, int b) {
 int main()
 {
     ios_base::sync_with_stdio(false); cin.tie(NULL);
-    
+
     int tc, cnt, i, j;
     bool end;
     cin >> tc;
     while (tc--) {
         cin >> n >> si >> sj >> ei >> ej;
-        memset(visited, 0, 90000);
+        memset(visited, 0, 300 * n);
         cnt = 0;
         que = queue<pair<short, short>>();
         visit(si, sj);
