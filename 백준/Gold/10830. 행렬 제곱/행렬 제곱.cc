@@ -7,7 +7,7 @@ int n;
 long long b;
 
 // a*b 결과가 c에 저장
-void mul(int**& a, int**& b, int**& c) {
+void mul(int** a, int** b, int** c) {
     for (int i = 0; i < n; i++)
         for (int k = 0; k < n; k++) {
             c[i][k] = 0;
