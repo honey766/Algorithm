@@ -20,8 +20,7 @@ int main()
     n = s.size();
     sa = new int[n];
     pos = new int[n];
-    int* tmp = new int[n];
-    int* lcp = new int[n]();
+    int* lcp = new int[n];
     //접미사 배열
     for (int i = 0; i < n; i++) {
         sa[i] = i;
@@ -29,12 +28,12 @@ int main()
     }
     for (d = 1; ; d <<= 1) {
         sort(sa, sa + n, cmp);
-        tmp[0] = 0;
+        lcp[0] = 0;
         for (int i = 1; i < n; i++)
-            tmp[i] = tmp[i - 1] + cmp(sa[i - 1], sa[i]);
+            lcp[i] = lcp[i - 1] + cmp(sa[i - 1], sa[i]);
         for (int i = 0; i < n; i++)
-            pos[sa[i]] = tmp[i];
-        if (tmp[n - 1] == n - 1) break;
+            pos[sa[i]] = lcp[i];
+        if (lcp[n - 1] == n - 1) break;
     }
     //LCP 배열
     int k = 0;
