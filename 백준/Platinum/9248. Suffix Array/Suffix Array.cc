@@ -28,7 +28,7 @@ int main()
     }
     for (d = 1; ; d <<= 1) {
         sort(sa, sa + n, cmp);
-        lcp[0] = 0;
+        lcp[0] = 0; //tmp 역할로 lcp 사용(메모리 절약)
         for (int i = 1; i < n; i++)
             lcp[i] = lcp[i - 1] + cmp(sa[i - 1], sa[i]);
         for (int i = 0; i < n; i++)
