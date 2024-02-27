@@ -43,9 +43,11 @@ int main()
     //lcp배열
     int k = 0;
     for (int i = 0; i < m; i++) {
+        // s[i:m] 접미사가 사전순으로 idx번째. sa[idx]==i
         int idx = pos[i];
         if (idx == m - 1) continue;
 
+        //사전순으로 인접한 다음 접미사와 얼마나 겹치는지 계산
         int j = sa[idx + 1];
         while (i + k < m && j + k < m) {
             if (s[i + k] != s[j + k]) break;
@@ -54,6 +56,7 @@ int main()
 
         Max = max(Max, k);
         k = max(k - 1, 0);
+        //aba와 ababa를 비교했다면, 다음은 ba와 baba를 비교함
     }
     cout << Max;
 }
