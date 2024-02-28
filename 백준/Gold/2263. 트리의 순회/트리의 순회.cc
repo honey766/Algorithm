@@ -5,6 +5,7 @@ using namespace std;
 
 int* in;
 int* post;
+int* index;
 struct Node {
 	int num;
 	int left;
@@ -26,10 +27,8 @@ int recur(int root, int l, int r, int rightCnt) {
 	int rootNum = post[r];
 	//in과 post는 root에 의해 right subtree의 첫 번째 원소 idx가 다르다. 그 차이를 보정한다
 	//left tree와 right tree를 나누는 l과 r은 post 기준으로 한다
-	int rootIdx = l + rightCnt;
-	for (; in[rootIdx] != rootNum; rootIdx++);
-
-	rootIdx -= rightCnt;
+	int rootIdx = index[rootNum] - rightCnt;
+	
 	int left = ++cnt;
 	int leftNode = recur(left, l, rootIdx - 1, rightCnt);
 	if (leftNode != -1) {
@@ -64,9 +63,13 @@ int main()
 	cin >> n;
 	in = new int[n];
 	post = new int[n];
+	index = new int[n + 1];
 	tree = new Node[n];
 
-	for (int i = 0; i < n; i++) cin >> in[i];
+	for (int i = 0; i < n; i++) {
+		cin >> in[i];
+		index[in[i]] = i;
+	}
 	for (int i = 0; i < n; i++) cin >> post[i];
 	tree[0].num = recur(0, 0, n - 1, 0);
 	pre(0);
