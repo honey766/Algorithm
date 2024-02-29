@@ -5,7 +5,6 @@ using namespace std;
 
 vs program[100];
 short pi1[1000], pi2[1000];
-short kmp[1000];
 int k;
 
 void swap(vs& vec1, vs& vec2) {
