@@ -4,16 +4,17 @@ using namespace std;
 #define pr pair<int, int>
 
 vector<vector<int>> graph;
+pr dp[1'000'000];
 //n이 루트인 서브트리에서, { 자기가 아답터일 때 최솟값, 아닐 때 최솟값 }
-pr dfs(int n, int p) {
+void dfs(int n, int p) {
 	int on = 1, off = 0;
 	for (int a : graph[n]) {
 		if (a == p) continue;
-		pr p = dfs(a, n);
-		on += min(p.first, p.second);
-		off += p.first;
+		dfs(a, n);
+		on += min(dp[a].first, dp[a].second);
+		off += dp[a].first;
 	}
-	return { on, off };
+	dp[n] = { on, off };
 }
 
 int main()
@@ -28,6 +29,6 @@ int main()
 		graph[--a].push_back(--b);
 		graph[b].push_back(a);
 	}
-	pr p = dfs(0, -1);
-	cout << min(p.first, p.second);
+	dfs(0, -1);
+	cout << min(dp[0].first, dp[0].second);
 }
