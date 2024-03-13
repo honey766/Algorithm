@@ -3,7 +3,7 @@ using namespace std;
 
 struct Node {
 	int num;
-	int left, right;
+	short left, right;
 	Node() { left = right = 1; }
 };
 int arr[10000];
