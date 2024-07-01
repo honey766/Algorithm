@@ -9,7 +9,7 @@ int main(){
         ++cnt;
         t = w / v;
         d -= 5 * t * t;
-        v *= 0.8;
+        w *= 1.25;
     }
     cout << cnt;
 }
