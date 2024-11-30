@@ -12,6 +12,8 @@ void p(int i){
     cout << '\n';
 }
 
+// arr[0~i-1]은 sign matrix를 만족하는 상태
+// arr[i]도 만족하려면 matrix[0~i-1][i]의 부호가 일치해야 함
 bool guess(int i){
 	if(i >= n)
 		return true;
