@@ -16,9 +16,8 @@ void swap(char& a, char& b){
 int countRowMax(char** a, int i){
 	int count = 1, maxCount = 1;
 	for(int j = 1; j < n; j++){
-		if(a[i][j] == a[i][j-1]) count++;
+		if(a[i][j] == a[i][j-1]) maxCount = max(maxCount, ++count);
 		else count = 1;
-		maxCount = max(maxCount, count);
 	}
 	return maxCount;
 }
