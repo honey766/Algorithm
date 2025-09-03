@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <functional>
 using namespace std;
 
 struct cmp {
